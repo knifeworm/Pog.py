@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import os
 
+TOKEN = 'C:/users/progr/desktop/token.json'
+
 bot = commands.Bot(command_prefix = "!")
 
 @bot.event
@@ -30,4 +32,4 @@ async def reload(ctx, extension):
     await ctx.send(f"Cog {extension} has been reloaded! :white_check_mark:")
 
 
-bot.run('run')
+bot.run(TOKEN)

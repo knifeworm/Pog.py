@@ -29,3 +29,5 @@ async def reload(ctx, extension):
     bot.load_extension(f'cogs.{extension}')
     await ctx.send(f"Cog {extension} has been reloaded! :white_check_mark:")
 
+
+bot.run('ODE3NzM2OTMyNDM1MTY1MTg0.YEN23Q.AsBDhchpxsWYr7V0AxNpUN9M1A4')

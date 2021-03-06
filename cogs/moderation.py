@@ -108,5 +108,22 @@ class moderation(commands.Cog):
             await ctx.send(f"{member} is not muted :x:")
 
 
+    @commands.command()
+    @commands.has_guild_permissions(ban_members=True)
+    async def unban(self, *, member : discord.Member):
+        banned_users = await ctx.guild.bans()
+        member_name, member_disc = member.split('#')
+
+        for banned_entry in banned_users:
+            user = banned_entry.user
+
+            if(user.name, user.discriminator) == (member_name,member_disc):
+
+                await ctx.guild.unban(user)
+                await ctx.send(member_name + "Has been unbanned and can join the server again!")
+                return
+        await ctx.send(member + "Was not found in the ban records!")
+
+
 def setup(bot):
     bot.add_cog(moderation(bot))

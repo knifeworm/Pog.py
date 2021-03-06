@@ -124,6 +124,16 @@ class moderation(commands.Cog):
                 return
         await ctx.send(member + "Was not found in the ban records!")
 
+    @commands.command()
+    @commands.has_guild_permissions(ban_members=True)
+    async def hackban(self, ctx, member : discord.Member, *, reason=None):
+        embed = discord.Embed(title="Ban")
+        embed.add_field(name="Member Banned", value=f"{member.id}", inline=False)
+        embed.add_field(name="Staff Member", value=f"{ctx.author}", inline=False)
+        embed.add_field(name="Reason", value=f"{reason}", inline=False)
+        await ctx.send(embed=embed)
+        await member.ban(reason=reason)        
+
 
 
 def setup(bot):

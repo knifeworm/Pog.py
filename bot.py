@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
 import os
+import json
+from se import TOKEN
 
-TOKEN = 'C:/users/progr/desktop/token.json'
 
 bot = commands.Bot(command_prefix = "!")
 
